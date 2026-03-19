@@ -1,0 +1,61 @@
+.vm {
+  background: var(--gray-light);
+}
+
+.vm__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.vm__card {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+  border-top: 4px solid transparent;
+}
+
+.vm__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-top-color: var(--yellow);
+}
+
+.vm__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: rgba(253,202,55,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vm__icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--blue-800);
+}
+
+.vm__title {
+  font-size: var(--h3);
+  font-weight: 800;
+  color: var(--blue-800);
+}
+
+.vm__text {
+  font-size: var(--body-lg);
+  line-height: 1.8;
+  color: var(--text-mid);
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .vm__grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .vm__card { padding: 2rem; }
+}

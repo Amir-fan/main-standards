@@ -1,0 +1,136 @@
+.about {
+  background: var(--white);
+  overflow: hidden;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Left - Image */
+.about__images {
+  position: relative;
+}
+
+.about__img-main {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.about__img-float {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  background: var(--blue-900);
+  color: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 4px solid var(--yellow);
+}
+
+.about__img-badge {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1;
+}
+
+.about__img-label {
+  font-size: var(--small);
+  font-weight: 700;
+}
+
+/* Right - Text */
+.about__text .label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about__text .section-title {
+  margin-bottom: 1.5rem;
+}
+
+.about__body {
+  font-size: var(--body-lg);
+  line-height: 1.8;
+  color: var(--text-mid);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+/* Bullet List */
+.about__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about__list li {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.about__list-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--yellow);
+  color: var(--blue-900);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.about__list strong {
+  display: block;
+  font-size: var(--body-lg);
+  color: var(--blue-900);
+  margin-bottom: 0.25rem;
+}
+
+.about__list p {
+  font-size: var(--body);
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .about__grid {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
+
+  .about__img-float {
+    right: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__img-float {
+    right: 1rem;
+    bottom: -1.5rem;
+    padding: 1.5rem;
+  }
+}

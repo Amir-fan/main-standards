@@ -1,0 +1,89 @@
+.objectives {
+  background: var(--off-white);
+}
+
+.objectives__header {
+  margin-bottom: 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.objectives__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.objectives__card {
+  padding: 2.5rem 2rem;
+  background: var(--white);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+  border: 1px solid var(--border);
+}
+
+.objectives__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(26,55,112,0.15);
+}
+
+.objectives__card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  height: 4px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.objectives__card:hover::after {
+  transform: scaleX(1);
+}
+
+.objectives__num {
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--gray-light);
+  line-height: 1;
+  margin-bottom: 1rem;
+  transition: color var(--dur-fast);
+}
+
+.objectives__card:hover .objectives__num {
+  color: rgba(253,202,55,0.2);
+}
+
+.objectives__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--blue-800);
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.objectives__text {
+  font-size: var(--body);
+  line-height: 1.7;
+  color: var(--text-mid);
+  font-weight: 300;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .objectives__grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+
+@media (max-width: 600px) {
+  .objectives__grid { grid-template-columns: 1fr; }
+}

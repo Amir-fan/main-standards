@@ -1,0 +1,324 @@
+/* ============================================================
+   MAIN STANDARDS — Global Design System
+   ============================================================ */
+
+/* — Reset & Base — */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Almarai', 'Inter', sans-serif;
+  background: var(--off-white);
+  color: var(--text-dark);
+  direction: rtl;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* — CSS Custom Properties — */
+:root {
+  /* Brand Colors */
+  --blue-950: #080f20;
+  --blue-900: #0f2249;
+  --blue-800: #1a3770;
+  /* PRIMARY */
+  --blue-700: #1e4285;
+  --blue-600: #24509e;
+  --blue-400: #2e6ac4;
+  --blue-100: #d6e4f7;
+
+  --yellow: #fdca37;
+  /* ACCENT */
+  --yellow-dk: #d4a820;
+  --yellow-lt: #ffe174;
+  --yellow-bg: #fffbea;
+
+  --white: #ffffff;
+  --off-white: #f8f9fb;
+  --gray-light: #eef1f6;
+  --text-dark: #0f1c38;
+  --text-mid: #3a4b6b;
+  --text-muted: #7182a0;
+  --border: rgba(26, 55, 112, 0.08);
+
+  /* Spacing */
+  --section-v: clamp(5rem, 9vw, 8rem);
+  --section-sm:clamp(3rem, 6vw, 5rem);
+  --container: 1280px;
+  --gutter:    clamp(1.25rem, 5vw, 3rem);
+
+  /* Typography Scale */
+  --display: clamp(2.5rem, 6vw, 5rem);
+  --h1: clamp(2rem, 4vw, 3.5rem);
+  --h2: clamp(1.75rem, 3.5vw, 2.75rem);
+  --h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --body-lg: 1.1rem;
+  --body: 1rem;
+  --small: 0.9rem;
+  --xs: 0.75rem;
+
+  /* Motion */
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --dur: 0.8s;
+  --dur-fast: 0.3s;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(15, 28, 56, 0.04);
+  --shadow-md: 0 12px 32px rgba(15, 28, 56, 0.08);
+  --shadow-lg: 0 24px 48px rgba(15, 28, 56, 0.12);
+}
+
+/* — Utility — */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section-pad {
+  padding-top: var(--section-v);
+  padding-bottom: var(--section-v);
+}
+
+/* — Scroll Reveal — */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* — Selection — */
+::selection {
+  background: var(--yellow);
+  color: var(--blue-900);
+}
+
+/* — Scrollbar — */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--blue-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yellow);
+  border-radius: 3px;
+}
+
+/* — Typography Helpers — */
+.label {
+  font-size: var(--xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+
+.section-title {
+  font-size: var(--h2);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--blue-800);
+}
+
+.section-title.light {
+  color: var(--white);
+}
+
+.section-subtitle {
+  font-size: var(--body-lg);
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+/* — Yellow accent bar — */
+.accent-bar {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--yellow);
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+/* — Button system — */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  font-family: 'Almarai', sans-serif;
+  font-size: var(--body);
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease);
+  text-decoration: none;
+  border: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--yellow);
+  color: var(--blue-900);
+  border-color: var(--yellow);
+}
+
+.btn-primary:hover {
+  background: var(--yellow-dk);
+  border-color: var(--yellow-dk);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(253, 202, 55, 0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--blue-800);
+  border-color: var(--blue-800);
+}
+
+.btn-outline:hover {
+  background: var(--blue-800);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* — Lightbox overlay — */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 15, 32, 0.96);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 88vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: var(--yellow);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-900);
+  font-weight: 700;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--white);
+  font-size: 1.2rem;
+  transition: background var(--dur-fast);
+}
+
+.lightbox-nav:hover {
+  background: var(--yellow);
+  color: var(--blue-900);
+}
+
+.lightbox-nav.prev {
+  right: 1.5rem;
+}
+
+.lightbox-nav.next {
+  left: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* — Mobile breakpoints — */
+@media (max-width: 768px) {
+  :root {
+    --section-v: clamp(3.5rem, 8vw, 5rem);
+  }
+}
