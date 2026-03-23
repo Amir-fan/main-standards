@@ -24,28 +24,15 @@
 .footer__logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
 }
 
 .footer__logo-img {
-  width: 56px;
-  height: 56px;
+  width: 140px;
+  height: auto;
   object-fit: contain;
-}
-
-.footer__logo-ar {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--white);
-}
-
-.footer__logo-en {
-  display: block;
-  font-size: 0.75rem;
-  color: var(--yellow);
-  font-family: 'Inter', sans-serif;
-  letter-spacing: 0.05em;
+  background: var(--white);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
 }
 
 .footer__tagline {

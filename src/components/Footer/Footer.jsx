@@ -19,11 +19,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <div className="footer__logo">
-              <img src="/logo.svg" alt="المقاييس الرئيسية" className="footer__logo-img" />
-              <div>
-                <span className="footer__logo-ar">المقاييس الرئيسية</span>
-                <span className="footer__logo-en">Main Standards Contracting</span>
-              </div>
+              <img src={import.meta.env.BASE_URL + 'images/ms-logo.png'} alt="المقاييس الرئيسية" className="footer__logo-img" />
             </div>
             <p className="footer__tagline">
               نُقدّم مشاريع إنشائية متكاملة بأعلى معايير الجودة والسلامة في المملكة العربية السعودية.

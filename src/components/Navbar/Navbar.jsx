@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
 const navLinks = [
   { label: 'من نحن', href: '#about' },
-  { label: 'رؤيتنا', href: '#vision' },
   { label: 'خدماتنا', href: '#services' },
   { label: 'مشاريعنا', href: '#projects' },
-  { label: 'شهاداتنا', href: '#certifications' },
   { label: 'تواصل معنا', href: '#contact' },
 ]
 
 export default function Navbar({ onQuote }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const sections = navLinks.map((l) => l.href.replace('#', ''))
@@ -33,6 +34,18 @@ export default function Navbar({ onQuote }) {
 
   const handleNavClick = (href) => {
     setMenuOpen(false)
+    
+    // If not on the homepage, navigate back to home with the hash appended
+    if (location.pathname !== '/') {
+      navigate('/' + (href === '#hero' ? '' : href))
+      return
+    }
+
+    if (href === '#hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
     const target = document.querySelector(href)
     if (target) {
       const offset = 100 // Height of floating navbar + padding
@@ -54,7 +67,7 @@ export default function Navbar({ onQuote }) {
         <div className="navbar__inner">
           {/* Logo */}
           <a href="#hero" className="navbar__logo" onClick={() => handleNavClick('#hero')}>
-            <span className="navbar__logo-ar">المقاييس الرئيسية</span>
+            <img src={import.meta.env.BASE_URL + 'images/ms-logo.png'} alt="المقاييس الرئيسية" className="navbar__logo-img" />
           </a>
 
           {/* Desktop Links */}

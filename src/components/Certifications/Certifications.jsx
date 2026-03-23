@@ -2,24 +2,16 @@ import { useState } from 'react'
 import useIntersection from '../../hooks/useIntersection'
 import './Certifications.css'
 
-const certs = [
-  { id: 1, name: 'شهادة جودة الإنجاز', img: '/images/certs/cert-1.jpg' },
-  { id: 2, name: 'ISO 45001:2018 — السلامة والصحة المهنية', img: '/images/certs/cert-2.jpg' },
-  { id: 3, name: 'ISO 9001:2015 — نظام إدارة الجودة', img: '/images/certs/cert-3.jpg' },
-  { id: 4, name: 'السجل التجاري', img: '/images/certs/cert-4.jpg' },
-  { id: 5, name: 'شهادة الغرفة التجارية', img: '/images/certs/cert-5.jpg' },
-  { id: 6, name: 'شهادة تسجيل الاستثمار', img: '/images/certs/cert-6.jpg' },
-  { id: 7, name: 'شهادة تعريف بالآيبان', img: '/images/certs/cert-7.jpg' },
-  { id: 8, name: 'العنوان الوطني', img: '/images/certs/cert-8.jpg' },
-  { id: 9, name: 'شهادة ضريبة القيمة المضافة', img: '/images/certs/cert-9.jpg' },
-  { id: 10, name: 'شهادة تسجيل مالية', img: '/images/certs/cert-10.jpg' },
-  { id: 11, name: 'خطاب اعتماد', img: '/images/certs/cert-11.jpg' },
-  { id: 12, name: 'شهادة اعتماد', img: '/images/certs/cert-12.jpg' },
-  { id: 13, name: 'شهادة تعميد', img: '/images/certs/cert-13.jpg' },
-  { id: 14, name: 'شهادة إنجاز', img: '/images/certs/cert-14.jpg' },
-]
+const base = import.meta.env.BASE_URL + 'images/certificates/'
 
-const PLACEHOLDER = 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=70'
+const certs = [
+  { id: 1, name: 'شهادة نظام إدارة الجودة - ISO 9001', img: `${base}iso-9001.png` },
+  { id: 2, name: 'شهادة نظام إدارة السلامة والصحة المهنية - ISO 45001', img: `${base}iso-45001.png` },
+  { id: 3, name: 'شهادة اعتماد', img: `${base}shahada-etimad.png` },
+  { id: 4, name: 'خطاب اعتماد', img: `${base}khatab-etimad.png` },
+  { id: 5, name: 'شهادة تعميد', img: `${base}shahada-tamid.png` },
+  { id: 6, name: 'شهادة إنجاز', img: `${base}shahada-injaz.png` },
+]
 
 export default function Certifications() {
   const [lightbox, setLightbox] = useState(null)
@@ -72,12 +64,12 @@ export default function Certifications() {
             <div
               className="certifications__card reveal"
               key={c.id}
-              style={{ transitionDelay: `${(i % 5) * 0.07}s` }}
+              style={{ transitionDelay: `${(i % 3) * 0.1}s` }}
               onClick={() => open(c)}
             >
               <div className="certifications__card-img-wrap">
                 <img
-                  src={PLACEHOLDER}
+                  src={c.img}
                   alt={c.name}
                   className="certifications__card-img"
                   loading="lazy"
@@ -94,8 +86,8 @@ export default function Certifications() {
 
       {lightbox && (
         <div className="lightbox-overlay" onClick={close}>
-          <div onClick={(e) => e.stopPropagation()} style={{ textAlign: 'center' }}>
-            <img src={PLACEHOLDER} alt={lightbox.name} />
+          <div onClick={(e) => e.stopPropagation()} style={{ textAlign: 'center', maxWidth: '800px', width: '90%' }}>
+            <img src={lightbox.img} alt={lightbox.name} style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain', borderRadius: '8px' }} />
             <p style={{ color: 'rgba(255,255,255,0.7)', marginTop: '1rem', fontSize: 'var(--small)' }}>
               {lightbox.name}
             </p>

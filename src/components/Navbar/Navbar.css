@@ -29,12 +29,16 @@
   text-decoration: none;
 }
 
-.navbar__logo-ar {
+.navbar__logo-img {
   display: block;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--blue-800);
-  transition: color var(--dur-fast);
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity var(--dur-fast);
+}
+
+.navbar__logo-img:hover {
+  opacity: 0.8;
 }
 
 /* Nav Links */
@@ -147,31 +151,32 @@
 
 .mobile-menu {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 300px;
-  max-width: 80vw;
-  background: var(--white);
+  inset: 0;
+  background: rgba(8, 15, 32, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 999;
-  padding: 6rem 2rem 2rem;
+  padding: 8rem 2rem 3rem;
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-lg);
-  transform: translateX(100%);
-  transition: transform var(--dur) var(--ease);
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease);
 }
 
 .mobile-menu.open {
-  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .mobile-menu ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .mobile-menu button {
@@ -179,31 +184,37 @@
   border: none;
   cursor: pointer;
   font-family: 'Almarai', sans-serif;
-  font-size: var(--body-lg);
-  font-weight: 700;
-  color: var(--blue-800);
-  text-align: right;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--white);
+  transition: color var(--dur-fast), transform var(--dur-fast);
+}
+
+.mobile-menu button:hover {
+  color: var(--yellow);
+  transform: translateY(-2px);
+}
+
+.mobile-menu__cta {
   width: 100%;
+  padding: 1.25rem !important;
+  font-size: 1.1rem !important;
+  border-radius: 100px;
+  background: var(--yellow) !important;
+  color: var(--blue-900) !important;
+  border: none !important;
+  margin-top: auto;
 }
 
 @media (max-width: 1024px) {
-  .navbar__links {
-    display: none;
-  }
-
-  .navbar__cta {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-  }
+  .navbar__links, .navbar__cta { display: none; }
+  .hamburger { display: block; }
 }
 
 @media (max-width: 480px) {
   .navbar {
     top: 1rem;
-    width: 95%;
-    padding: 0.5rem 1rem;
+    width: calc(100% - 2rem);
+    padding: 0.5rem 1.25rem;
   }
 }
