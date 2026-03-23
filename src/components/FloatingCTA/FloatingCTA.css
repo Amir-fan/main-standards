@@ -1,0 +1,38 @@
+.floating-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .floating-cta {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9998;
+    padding: 0.75rem 1rem;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 16px rgba(15,28,56,0.06);
+  }
+
+  .floating-cta__btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--yellow);
+    color: var(--blue-900);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Almarai', sans-serif;
+    font-size: var(--body-lg);
+    font-weight: 800;
+    cursor: pointer;
+    transition: background var(--dur-fast);
+  }
+
+  .floating-cta__btn:active {
+    background: var(--yellow-dk);
+    transform: scale(0.98);
+  }
+}

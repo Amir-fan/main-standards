@@ -2,9 +2,13 @@ import useIntersection from '../../hooks/useIntersection'
 import './Values.css'
 
 const values = [
-  { img: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=600&q=80', title: 'الجودة والاحترافية', text: 'نحرص على تنفيذ جميع أعمالنا بمعايير مهنية عالية ومواصفات دقيقة تضمن متانة وجودة المشاريع.' },
-  { img: 'https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?w=600&q=80', title: 'الالتزام والشفافية', text: 'دقة لا تتنازل في المواعيد، ووضوح تام في التعامل، لنبني ثقة تدوم مع عملائنا.' },
-  { img: 'https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?w=600&q=80', title: 'السلامة والاستدامة', text: 'بيئة عمل آمنة، واستخدام مسؤول للموارد لتنفيذ مشاريع تراعي البيئة والمجتمع.' },
+  { title: 'الجودة', text: 'نحرص على تنفيذ جميع أعمالنا وفق أعلى المعايير والمواصفات الفنية لضمان متانة وجودة المشاريع.' },
+  { title: 'الالتزام', text: 'نلتزم بدقة المواعيد وتنفيذ الأعمال كما هو متفق عليه دون تأخير أو تقصير.' },
+  { title: 'الشفافية', text: 'نبني علاقاتنا على الثقة والوضوح في التعامل مع عملائنا وشركائنا.' },
+  { title: 'السلامة', text: 'نطبق أنظمة السلامة المهنية في مواقع العمل لضمان بيئة آمنة للعاملين والمعدات.' },
+  { title: 'الابتكار', text: 'نسعى باستمرار إلى تطوير أساليب العمل وتبني أحدث التقنيات في مجال الإنشاءات.' },
+  { title: 'الاحترافية', text: 'نعمل بمعايير مهنية عالية تعكس صورة مشرفة لقطاع المقاولات.' },
+  { title: 'الاستدامة', text: 'نلتزم بتنفيذ مشاريع تراعي البيئة والمجتمع، مع الحرص على استخدام الموارد بشكل مستدام ودعم التنمية المحلية.' },
 ]
 
 export default function Values() {
@@ -17,12 +21,7 @@ export default function Values() {
         <div className="values__header reveal">
           <span className="accent-bar" />
           <p className="label">قيمنا</p>
-          <h2 className="section-title">
-            المبادئ التي تحكم كل قرار
-          </h2>
-          <p className="section-subtitle">
-            نجاحنا ليس وليد الصدفة، بل هو نتيجة التزامنا الراسخ بمجموعة من القيم الجوهرية التي توجه مسارنا وتحدد هويتنا.
-          </p>
+          <h2 className="section-title">المبادئ التي تحكم كل قرار</h2>
         </div>
 
         <div className="values__grid">
@@ -30,15 +29,11 @@ export default function Values() {
             <div
               className="values__card reveal"
               key={i}
-              style={{ transitionDelay: `${i * 0.15}s` }}
+              style={{ transitionDelay: `${i * 0.08}s` }}
             >
-              <div className="values__img-wrap">
-                <img src={v.img} alt={v.title} className="values__img" loading="lazy" />
-              </div>
-              <div className="values__content">
-                <h3 className="values__title">{v.title}</h3>
-                <p className="values__text">{v.text}</p>
-              </div>
+              <div className="values__accent" />
+              <h3 className="values__title">{v.title}</h3>
+              <p className="values__text">{v.text}</p>
             </div>
           ))}
         </div>

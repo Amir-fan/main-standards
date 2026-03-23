@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'تواصل معنا', href: '#contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ onQuote }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
 
@@ -73,8 +73,8 @@ export default function Navbar() {
 
           {/* CTA + Hamburger */}
           <div className="navbar__actions">
-            <button className="btn btn-primary navbar__cta" onClick={() => handleNavClick('#contact')}>
-              تواصل معنا
+            <button className="btn btn-primary navbar__cta" onClick={onQuote}>
+              طلب عرض سعر
             </button>
             <button
               className={`hamburger ${menuOpen ? 'open' : ''}`}
@@ -96,8 +96,8 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-        <button className="btn btn-primary mobile-menu__cta" onClick={() => handleNavClick('#contact')}>
-          تواصل معنا
+        <button className="btn btn-primary mobile-menu__cta" onClick={() => { setMenuOpen(false); onQuote(); }}>
+          طلب عرض سعر
         </button>
       </div>
     </>
